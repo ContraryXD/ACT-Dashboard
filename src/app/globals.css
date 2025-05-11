@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
+/* 1. Use standard Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Define your light and dark theme variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-light: #ffffff; /* Your light background */
+  --foreground-light: #171717; /* Your light text */
+
+  --background-dark: #0a0a0a; /* Your dark background (e.g., body) */
+  --foreground-dark: #ededed; /* Your dark text (e.g., body) */
+  /* Add any other theme-specific variables here */
 }
 
+/* 3. Apply default (light) theme variables to the body */
+body {
+  background: var(--background-light);
+  color: var(--foreground-light);
+  font-family: Arial, Helvetica, sans-serif; /* Keep your desired font */
+}
+
+/* 4. When html has the .dark class, apply dark theme variables */
+html.dark body {
+  background: var(--background-dark);
+  color: var(--foreground-dark);
+}
+
+/*
+  The `@theme inline` block is not standard CSS or Tailwind.
+  If it's from a specific library you're using, ensure it's compatible with this setup.
+  If --font-geist-sans and --font-geist-mono are from next/font, they are typically applied
+  in your layout.tsx or Tailwind config.
+*/
+/*
 @theme inline {
-  --color-background: var(--background);
+  --color-background: var(--background); // These would need to be adjusted based on light/dark
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+*/
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/*
+  The `prefers-color-scheme` media query can still be useful for users who haven't
+  explicitly set a theme via your toggle yet, as your ThemeSettings.tsx component
+  already checks this on initial load. The .dark class applied by JS will take precedence.
+*/
