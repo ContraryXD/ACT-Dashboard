@@ -12,7 +12,6 @@ interface Params {
   id: string;
 }
 
-// GET a single contact by ID
 export async function GET(req: NextRequest, { params }: { params: Params }) {
   try {
     const { id } = params;
@@ -28,7 +27,6 @@ export async function GET(req: NextRequest, { params }: { params: Params }) {
   }
 }
 
-// PUT (update) a contact by ID
 export async function PUT(req: NextRequest, { params }: { params: Params }) {
   try {
     const { id } = params;
