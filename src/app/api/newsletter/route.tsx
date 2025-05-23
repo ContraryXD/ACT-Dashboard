@@ -9,6 +9,10 @@ export interface NewsletterItem {
    updated_at: string; // Or Date
 }
 
+export async function OPTIONS() {
+   return new NextResponse(null, { status: 204 });
+}
+
 export async function GET() {
    try {
       const newsletterItems = await query({
