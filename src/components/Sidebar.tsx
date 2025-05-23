@@ -3,15 +3,10 @@ import Image from "next/image"; // Import the Image component
 import {
    Cog6ToothIcon as IconSettings,
    NewspaperIcon as IconNewspaper,
-   UserGroupIcon as IconUserGroup,
-   EnvelopeIcon as IconEnvelope,
-   SparklesIcon as IconSparkles,
-   Bars3Icon as IconBars3,
-   WrenchScrewdriverIcon as IconWrenchScrewdriver,
    UsersIcon as IconUsers,
    ChatBubbleLeftEllipsisIcon as IconChat,
    BellIcon as IconNotification,
-   PhotoIcon as IconPhoto // Assuming for Carousel
+   BriefcaseIcon as IconRecruitment // Added for Recruitments
 } from "@heroicons/react/24/outline";
 
 interface NavItem {
@@ -36,40 +31,26 @@ const navigationSections: NavSection[] = [
    },
    {
       title: "Admin Management",
-      items: [{ name: "Users", href: "/admin/admin/users", icon: IconUsers }]
-   },
-   {
-      title: "Advanced Content",
-      items: [
-         {
-            name: "Website",
-            icon: IconSettings,
-            subItems: [
-               { name: "Services", href: "website/services", icon: IconWrenchScrewdriver },
-               { name: "Carousel", href: "website/carousel", icon: IconPhoto },
-               { name: "Partners", href: "website/partners", icon: IconUserGroup },
-               { name: "Navigation", href: "website/navigation", icon: IconBars3 },
-               { name: "Interested", href: "website/interested", icon: IconSparkles },
-               { name: "Contact", href: "/contact", icon: IconEnvelope }
-            ]
-         }
-      ]
+      items: [{ name: "Users", href: "/admin/users", icon: IconUsers }]
    },
    {
       title: "Basic Content",
-      items: [{ name: "Newsletter", href: "/newsletter", icon: IconNewspaper }]
+      items: [
+         { name: "Newsletter", href: "/newsletters", icon: IconNewspaper },
+         { name: "Recruitments", href: "/recruitments", icon: IconRecruitment } // Added Recruitments
+      ]
    },
    {
       title: "customization",
-      items: [{ name: "Settings", href: "Settings", icon: IconSettings }]
+      items: [{ name: "Settings", href: "/Settings", icon: IconSettings }]
    }
 ];
 
 export default function Sidebar() {
    return (
-      <aside className="fixed top-0 left-0 z-40 flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+      <aside className="fixed top-0 left-0 z-40 flex flex-col w-45 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
          <a href="#">
-            <Image src="https://merakiui.com/images/logo.svg" alt="Company Logo" width={116} height={28} />
+            <Image src="/img/logo_ACT.png" alt="Company Logo" width={116} height={28} />
          </a>
          <div className="flex flex-col justify-between flex-1 mt-6">
             <nav className="-mx-3 space-y-6 ">
